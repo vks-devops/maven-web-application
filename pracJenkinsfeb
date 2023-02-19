@@ -37,4 +37,3 @@ sh "scp -o  StrictHostKeyChecking=false  target/maven-web-application.war  ec2-u
 
 } //nodeClose
 
-
