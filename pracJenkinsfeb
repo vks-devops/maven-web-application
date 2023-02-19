@@ -22,6 +22,9 @@ stage("SonarQube Quality Gate") {
            if (qg.status != 'OK') {
              error "Pipeline aborted due to quality gate failure: ${qg.status}"
            }
+           else {
+              print "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
         }
     }
 /*
