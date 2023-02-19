@@ -10,13 +10,14 @@ stage('Build'){
 sh "${mavenHome}/bin/mvn clean package"
 }
 
-stage ('sonarReprt'){
+stage ('sonarReprt')
+{
 withSonarQubeEnv('sonarQubeserver') {
 sh "${mavenHome}/bin/mvn sonar:sonar"
 }
 }
 
-stage("SonarQube Quality Gate") { 
+stage('SonarQube Quality Gate') { 
         timeout(time: 1, unit: 'HOURS') { 
            def qg = waitForQualityGate() 
            if (qg.status != 'OK') {
