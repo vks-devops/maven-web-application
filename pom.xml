@@ -21,10 +21,11 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://15.207.221.110:9000/</sonar.host.url>
-		<sonar.login>admin</sonar.login>
-		<sonar.password>vikas</sonar.password>
-               
+		<sonar.host.url>http://13.127.148.13:9000/</sonar.host.url>
+		<sonar.login>squ_bba12a2cf3b45e758f6b89b01954a10d51a3c1be</sonar.login>
+		<!--
+               <sonar.password>vikas</sonar.password>
+               -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -98,12 +99,12 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <url>http://3.111.150.254:8081/repository/maven-test/</url>
+	      <url>http://3.110.172.76:8081/repository/maven-test/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <url>http://3.111.150.254:8081/repository/maven-test-snapshot/</url>
+	      <url>http://3.110.172.76:8081/repository/maven-test-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
