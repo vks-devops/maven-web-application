@@ -1,0 +1,54 @@
+node{
+    
+    
+def mavenHome = tool name: 'Maven_3.8.7' 
+
+stage('getCode'){
+
+git credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.com/vks-devops/maven-web-application.git'
+
+}
+
+
+stage('Build'){
+
+sh "${mavenHome}/bin/mvn clean package"
+
+}
+
+ echo "${env.BRANCH_NAME}"
+
+ echo "${env.BUILD_NUMBER}"
+
+ echo "${env.BUILD_DISPLAY_NAME}"
+
+ echo "${currentBuild.previousFailedBuild}"
+
+ echo "${currentBuild.duration}"
+
+
+stage ('sonarReprt'){
+
+sh "${mavenHome}/bin/mvn sonar:sonar"
+
+}
+
+
+stage ('nexus'){
+
+sh "${mavenHome}/bin/mvn deploy"
+
+} 
+
+stage ('tomcat deploy'){
+sshagent(['bf8e843e-ef9e-4e02-8e73-a5ca224e0a62']) {
+sh "scp -o  StrictHostKeyChecking=false  target/maven-web-application.war  ec2-user@65.0.20.242:/opt/apache-tomcat/webapps"
+}
+}
+
+
+
+
+} //nodeClose
+
+
