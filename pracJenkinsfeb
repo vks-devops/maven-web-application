@@ -11,7 +11,9 @@ sh "${mavenHome}/bin/mvn clean package"
 }
 
 stage ('sonarReprt'){
+withSonarQubeEnv('sonarQubeserver') {
 sh "${mavenHome}/bin/mvn sonar:sonar"
+}
 }
 
 stage("SonarQube Quality Gate") { 
