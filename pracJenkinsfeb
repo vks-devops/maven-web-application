@@ -6,6 +6,8 @@ stage('getCode'){
 git credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.com/vks-devops/maven-web-application.git'
 }
 
+slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+
 stage('Build'){
 sh "${mavenHome}/bin/mvn clean package"
 }
@@ -38,6 +40,6 @@ sh "scp -o  StrictHostKeyChecking=false  target/maven-web-application.war  ec2-u
 }
 
 */
-slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+
 } //nodeClose
 
