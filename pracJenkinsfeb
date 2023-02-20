@@ -38,6 +38,6 @@ sh "scp -o  StrictHostKeyChecking=false  target/maven-web-application.war  ec2-u
 }
 
 */
-
+slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 } //nodeClose
 
