@@ -12,14 +12,14 @@ git credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.
 stage('Build'){
 sh "${mavenHome}/bin/mvn clean package"
 }
-
+/*
 stage ('sonarReprt')
 {
 withSonarQubeEnv('sonarQubeserver') {
 sh "${mavenHome}/bin/mvn sonar:sonar"
 }
 }
-/*
+
 stage("Quality Gate"){
   timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
     def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
