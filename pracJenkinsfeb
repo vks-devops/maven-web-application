@@ -1,7 +1,8 @@
-node('node'){
+@Library('slacksnippitvikas') _
+node{
 
 try {
-        notifySlack()
+        sendSlackNotifications()
         
 def mavenHome = tool name: 'Maven_3.8.7' 
 
@@ -47,13 +48,13 @@ sh "scp -o  StrictHostKeyChecking=false  target/maven-web-application.war  ec2-u
         currentBuild.result = 'FAILURE'
         throw e
     } finally {
-        notifySlack(currentBuild.result)
+        sendSlackNotifications(currentBuild.result)
     }
 
 
 } //nodeClose
 
-
+*/
 
 def notifySlack(String buildStatus = 'STARTED') {
     // Build status of null means success.
@@ -75,3 +76,4 @@ def notifySlack(String buildStatus = 'STARTED') {
 
     slackSend(color: color, message: msg)
 }
+*/
