@@ -6,6 +6,10 @@ try {
         
 def mavenHome = tool name: 'Maven_3.8.7'
 
+parameters {
+  choice choices: ['master', 'development', 'stage'], description: 'select req branch', name: 'Branch'
+}
+
 stage('getCode'){
 git credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.com/vks-devops/maven-web-application.git'
 }
