@@ -6,12 +6,10 @@ try {
         
 def mavenHome = tool name: 'Maven_3.8.7'
 
-parameters {
-  choice choices: ['master', 'development', 'stage'], description: 'select req branch', name: 'Branch'
-}
+properties([parameters([choice(choices: ['master ', 'dev', 'stage'], description: 'enter valid branch', name: 'branch')]), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
 
 stage('getCode'){
-git credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.com/vks-devops/maven-web-application.git'
+git branch: "${params.branch}" credentialsId: 'f0ce6714-a8e9-4abe-a87d-ea7ad6ad9d2c', url: 'https://github.com/vks-devops/maven-web-application.git'
 }
 
 stage('Build'){
