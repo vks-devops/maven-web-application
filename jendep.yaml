@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: testnew123
+  name: jendeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenapp
+  template:
+    metadata:
+      labels:
+        app: jenapp
+    spec:
+      containers:
+      - name: jeap
+        image: vikasaroor/jenandk8s:REV
+        ports:
+        - containerPort: 8080
