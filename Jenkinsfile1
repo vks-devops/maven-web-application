@@ -36,7 +36,9 @@ stages{
   steps{
 withSonarQubeEnv(credentialsId: 'sonarjen') {
     mvn sonar:sonar
+   }
 }
+
 }
 /*
  stage('ExecuteSonarQubeReport'){
