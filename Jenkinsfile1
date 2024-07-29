@@ -31,9 +31,9 @@ stages{
   }
 
 
-/*  stage('sonar'){
+stage('sonar'){
   steps{
-       withSonarQubeEnv(credentialsId: 'sonarnew') {
+       withSonarQubeEnv('sonarqube') {
     sh "mvn sonar:sonar"
    }
 }
