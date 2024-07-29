@@ -33,7 +33,7 @@ stages{
 
 stage('sonar'){
   steps{
-    sh "mvn sonar:sonar -Dsonar.url=http://65.0.32.190:9000 -Dsonar.login="2849b0995cb9ba6de319f5214333d17fc99f7c5b"
+    sh "mvn sonar:sonar -Dsonar.url=http://65.0.32.190:9000 -Dsonar.login=2849b0995cb9ba6de319f5214333d17fc99f7c5b
    }
 }
 
