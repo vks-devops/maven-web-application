@@ -4,8 +4,6 @@ agent any
 
 tools{
 maven 'Maven_3.9.8'
-
-
 }
 
 triggers{
@@ -26,23 +24,23 @@ stages{
 	}
   }
   
-  stage('sonar'){
+  stage('build'){
   steps{
   sh  "mvn clean package"
   }
   }
 
 
-  stage('Build'){
+/*  stage('sonar'){
   steps{
-withSonarQubeEnv(credentialsId: 'sonarnew') {
+       withSonarQubeEnv(credentialsId: 'sonarnew') {
     sh "mvn sonar:sonar"
    }
 }
 
 }
-/*
- stage('ExecuteSonarQubeReport'){
+
+stage('ExecuteSonarQubeReport'){
   steps{
   sh  "mvn clean sonar:sonar"
   }
